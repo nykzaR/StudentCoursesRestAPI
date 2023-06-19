@@ -15,8 +15,8 @@ pipeline {
         }
         stage('scan & push') {
             steps {
-                sh 'echo docker scan aegonn/spc:latest',
-                sh 'docker image push docker scan aegonn/spc:latest'
+                sh 'echo docker scan aegonn/spc:latest'
+                sh 'docker image push aegonn/spc:latest'
             }
         }
     }
