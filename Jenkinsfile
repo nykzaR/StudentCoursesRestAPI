@@ -19,5 +19,13 @@ pipeline {
                 sh 'docker image push aegonn/spc:latest'
             }
         }
+        stage('deploy to st') {
+            steps {
+                sh 'kubectl apply -f ./K8s/flask-aws.yml'
+                sh 'kubectl apply -f ./K8s/mysql-aws.yml'
+                sh 'sleep 9s'
+                sh 'kubectl get svc'
+            }
+        }
     }
 }
